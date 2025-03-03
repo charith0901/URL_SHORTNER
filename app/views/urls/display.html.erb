@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortened Successfully</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+  <div class="max-w-md mx-auto my-12 bg-white rounded-lg shadow-md overflow-hidden">
+    <div class="bg-blue-600 p-4 text-white">
+      <h1 class="text-2xl font-bold">URL Shortened Successfully!</h1>
+    </div>
+    
+    <div class="p-6">
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-red-700 mb-1">Original URL</label>
+        <div class="flex">
+          <input type="text" value="<%= @url.original %>" class="block w-full bg-gray-50 border border-gray-300 rounded-md py-2 px-3 text-gray-700 overflow-hidden text-ellipsis" readonly />
+        </div>
+      </div>
+      
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Your Short URL</label>
+        <div class="flex">
+          <input id="shortUrl" type="text" value="<%= url_for(@url.short) %>" class="block w-full bg-gray-50 border border-gray-300 rounded-md py-2 px-3 text-gray-700" readonly />
+          <button id="copyBtn" data-clipboard-target="#shortUrl" class="ml-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
+            Copy
+          </button>
+        </div>
+        <p id="copySuccess" class="text-green-600 text-sm mt-1 hidden">Copied to clipboard!</p>
+      </div>
+      
+      <div class="flex items-center justify-between">
+        <a href="<%= url_for(@url.short) %>" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium hover:underline">
+          Test your link
+        </a>
+        <a href="<%= root_path %>" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md">
+          Create another
+        </a>
+      </div>
+      
+      <div class="mt-8 pt-4 border-t border-gray-200">
+        <p class="text-sm text-gray-600 mb-1">Stats for this link:</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Initialize clipboard.js
+    var clipboard = new ClipboardJS('#copyBtn');
+    
+    clipboard.on('success', function(e) {
+      document.getElementById('copySuccess').classList.remove('hidden');
+      setTimeout(function() {
+        document.getElementById('copySuccess').classList.add('hidden');
+      }, 2000);
+      e.clearSelection();
+    });
+  </script>
+</body>
+</html>
