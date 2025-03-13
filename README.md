@@ -1,24 +1,50 @@
-# README
+# URL Shortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple and efficient URL shortener application built with Ruby on Rails and Tailwind CSS.
 
-Things you may want to cover:
+## Features
+- Shorten long URLs
+- Retrieve original URLs
+- Responsive UI with Tailwind CSS
 
-* Ruby version
+## Technologies Used
+- **Backend:** Ruby on Rails
+- **Database:** Sqlite3
+- **Frontend:** Tailwind CSS
 
-* System dependencies
+## Installation
 
-* Configuration
+### Prerequisites
+- Ruby (>=3.0)
+- Rails (>=7.x)
 
-* Database creation
+### Steps
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/charith0901/URL_SHORTNER.git
+   cd URL_SHORTNER
+   ```
+2. Install dependencies:
+   ```sh
+   bundle install
+   ```
+3. Set up database:
+   ```sh
+   rails db:create db:migrate
+   ```
+4. Build Tailwindcss:
+    ```sh
+     rails tailwindcss:build
+    ```
+5. Run the application:
+   ```sh
+   rails server
+   ```
 
-* Database initialization
+## Usage
+- Open `http://localhost:3000` in your browser.
+- Use the provided input box to shorten URLs.
 
-* How to run the test suite
+## Author
+[Charith](https://github.com/charith0901)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
