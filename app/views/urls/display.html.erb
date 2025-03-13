@@ -23,7 +23,7 @@
       <div class="mb-6">
         <label class="block text-sm font-medium text-gray-700 mb-1">Your Short URL</label>
         <div class="flex">
-          <input id="shortUrl" type="text" value="<%= url_for(@url.short) %>" class="block w-full bg-gray-50 border border-gray-300 rounded-md py-2 px-3 text-gray-700" readonly />
+          <input id="shortUrl" type="text" value="<%= request.base_url + '/' + @url.short %>" class="block w-full bg-gray-50 border border-gray-300 rounded-md py-2 px-3 text-gray-700" readonly />
           <button id="copyBtn" data-clipboard-target="#shortUrl" class="ml-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
             Copy
           </button>
@@ -32,7 +32,7 @@
       </div>
       
       <div class="flex items-center justify-between">
-        <a href="<%= url_for(@url.short) %>" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium hover:underline">
+        <a href="/<%= @url.short %>" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium hover:underline">
           Test your link
         </a>
         <a href="<%= root_path %>" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md">
